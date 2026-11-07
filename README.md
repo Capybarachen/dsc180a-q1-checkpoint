@@ -1,23 +1,20 @@
 # DSC 180 D32: Steering Diffusion Models — Q1 Checkpoint
 
-Code for my Quarter 1 checkpoint (mentors: Yusu Wang and Qingsong Wang). I generate CIFAR-10 images with
-NVIDIA's pretrained EDM models, steer them with conditioning and classifier-free guidance (CFG), and measure them
-with label accuracy and FID. I also train small CFG networks on CIFAR-10 and MNIST.
+This is code for my assignment 1 checkpoint. I use NVIDIA's pre-trained EDM model to generate CIFAR-10 pictures, and guide the generation using conditioning and classifier-free guidance (CFG) to control the generated content. I use label accuracy and FID to evaluate the results, and I also use CIFAR-10 and MNIST to train small CFG models.
 
 ## Files
 
 | File | What it is |
 |---|---|
-| `cifar10_edm_lab.ipynb` | The course's CIFAR-10 EDM notebook, run end to end (parts 1–6). I filled in the part 3 cell. |
-| `mnist_cfg.ipynb` | My notebook: trains the lab's U-Net as a CFG network on MNIST and evaluates it. |
+| `cifar10_edm_lab.ipynb` | This is the CIFAR-10 EDM notebook provided by the course. I executed Parts 1–6 and completed the code for Part 3. |
+| `mnist_cfg.ipynb` | My notebook use MNIST data to train the U-Net model provided by the course to support CFG, and evaluate the results. |
 | `mnist_guidance_lab.py` | The course's MNIST helper code (U-Net, classifier, sampler), unchanged. |
 | `figures/` | The figures in the report. |
-| `NOTES.md` | My answers to part 3's questions. |
+| `NOTES.md` | My answers to part 3 and part 5 's questions. |
 
 ## Setup
 
-Python 3.10+ and an NVIDIA GPU.
-
+Python 3.10 up  and an NVIDIA GPU
 ```
 pip install torch torchvision numpy matplotlib
 ```
@@ -26,22 +23,20 @@ Where I ran each part:
 
 | Part | Hardware |
 |---|---|
-| CIFAR-10 parts 1–5 | Google Colab, T4 GPU |
-| CIFAR-10 part 6 and MNIST | My PC, RTX 4070 Ti SUPER |
-| Full EDM training run | UCSD DSMLP GPU |
+| CIFAR-10 parts 1–5 | run on Google Colab T4 GPU |
+| CIFAR-10 part 6 and MNIST | run on my pc NVIDIA RTX 4070 Ti Super GPU |
+| Full EDM training run |  run on UCSD DSMLP GPU |
 
 ## Data downloads
 
-- **CIFAR-10 and EDM:** the "Downloads" cell of `cifar10_edm_lab.ipynb` downloads everything it needs (about
-  720 MB): EDM's code, the pretrained EDM networks, the CIFAR-10 images, the Inception network and reference
-  statistics for FID, and the ResNet-56 classifier.
+- **CIFAR-10 and EDM:** The “Downloads” cell in `cifar10_edm_lab.ipynb` will download all the required files, including EDM code, pre-trained EDM models, CIFAR-10 images, the Inception network and reference statistics required to calculate FID, and the ResNet-56 classifier.
 - **MNIST:** the first cell of `mnist_cfg.ipynb` downloads it with `torchvision.datasets.MNIST`.
 - **`evaluator.pt`** (the course's frozen MNIST classifier): run the "Get the model weights" cell of the course's
   `guidance_mnist.ipynb`, then put the file next to `mnist_cfg.ipynb`.
 
 ## How to reproduce each figure and table
 
-Open the notebook and choose **Run All**. Figures were saved as screenshots of the notebook output.
+Open the notebook and choose Run All. Figures will appear in each output.
 
 | Report | File | Made by |
 |---|---|---|
@@ -57,14 +52,6 @@ Open the notebook and choose **Run All**. Figures were saved as screenshots of t
 | Table 3, Figure 13 | `mnist_samples.png` | `mnist_cfg.ipynb`, evaluation cell |
 | Figure 14 | `full_run_loss_fid.png` | Full EDM training run (below) |
 
-**Full EDM training run (Figure 14).** I ran the command printed by the "Encouraged" section of the CIFAR-10
-notebook on DSMLP:
-
-```
-torchrun --standalone --nproc_per_node=1 train.py --outdir=training-runs --data=<cifar10 zip> --cond=0 \
-    --arch=ddpmpp --batch=512 --batch-gpu=64 --duration=10 --snap=10
-```
-
-DSMLP containers stop after 6 hours, so I restarted the run with `--resume` from the latest training state
-(about 22 hours over 5 containers). FID was computed on 1,000 samples from each snapshot, as in the notebook.
+**Full EDM training run (Figure 14).** 
+I executed the command displayed in the "Encouraged" section of the CIFAR-10 notebook on DSMLP and trained for about 22 hours. When the container stopped after 6 hours, I used --resume to continue training.
 
