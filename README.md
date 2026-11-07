@@ -68,5 +68,5 @@ I executed the command displayed in the "Encouraged" section of the CIFAR-10 not
   - Answered the Part 3, Part 5, and “Before running” questions based on my understanding and observations.
   - Wrote the README, `NOTES.md`, and report, and set up the GitHub repository and Overleaf report.
 
-- **Claude’s help:** Claude gave me some suggestions for `mnist_cfg.ipynb`and helped me with the writing structure and grammar. It created the table under “How to reproduce each figure and table” in the README based on my keywords and helped with the LaTeX formatting. For the optional full EDM training, Claude wrote the scripts and helped me fix DSMLP errors.
+- **Claude’s help:** Claude gave me some suggestions for `mnist_cfg.ipynb`and helped me with the writing structure and grammar. It created the table under “How to reproduce each figure and table” in the README based on my keywords and helped with the LaTeX formatting. For the optional full EDM training, Claude wrote the scripts and helped me fix DSMLP errors. Help me complete the "Use of AI and My Contributions" section.
 
