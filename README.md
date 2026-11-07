@@ -62,7 +62,7 @@ I executed the command displayed in the "Encouraged" section of the CIFAR-10 not
 
 - **My work:**
   - Set up PyTorch with CUDA on my PC. I ran CIFAR-10 Parts 1–5 on Google Colab and Part 6 on my own GPU.
-  - Wrote the data loading, training loop with label dropout and EMA, and evaluation loop in `mnist_cfg.ipynb` based on Claude’s suggestions. I then trained and evaluated the model and asked Claude to review the code.
+  - Wrote the data loading, training loop with label dropout and EMA, and evaluation loop in `mnist_cfg.ipynb`. I then trained and evaluated the model and asked Claude to review the code.
   - Ran the optional full EDM training on DSMLP for about 22 hours, restarting it when the containers stopped.
   - Looked at the figures, saved them, and chose which ones to include in the report.
   - Answered the Part 3, Part 5, and “Before running” questions based on my understanding and observations.
