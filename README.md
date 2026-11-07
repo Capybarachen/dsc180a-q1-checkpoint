@@ -55,3 +55,18 @@ Open the notebook and choose Run All. Figures will appear in each output.
 **Full EDM training run (Figure 14).** 
 I executed the command displayed in the "Encouraged" section of the CIFAR-10 notebook on DSMLP and trained for about 22 hours. When the container stopped after 6 hours, I used --resume to continue training.
 
+
+## Use of AI and My Contributions
+
+- **From the course:** `cifar10_edm_lab.ipynb` (except my answers and the Part 3 trajectory cell), `mnist_guidance_lab.py`, and the FID functions copied into `mnist_cfg.ipynb`.
+
+- **My work:**
+  - Set up PyTorch with CUDA on my PC. I ran CIFAR-10 Parts 1–5 on Google Colab and Part 6 on my own GPU.
+  - Wrote the data loading, training loop with label dropout and EMA, and evaluation loop in `mnist_cfg.ipynb` based on Claude’s suggestions. I then trained and evaluated the model and asked Claude to review the code.
+  - Ran the optional full EDM training on DSMLP for about 22 hours, restarting it when the containers stopped.
+  - Looked at the figures, saved them, and chose which ones to include in the report.
+  - Answered the Part 3, Part 5, and “Before running” questions based on my understanding and observations.
+  - Wrote the README, `NOTES.md`, and report, and set up the GitHub repository and Overleaf report.
+
+- **Claude’s help:** Claude suggested the Part 3 trajectory code and helped me with the writing structure and grammar. It created the table under “How to reproduce each figure and table” in the README based on my keywords and helped with the LaTeX formatting. For the optional full EDM training, Claude wrote the scripts and helped me fix DSMLP errors.
+
